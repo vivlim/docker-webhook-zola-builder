@@ -15,6 +15,6 @@ git reset --hard origin/$GIT_BRANCH
 git submodule init && git submodule update
 
 # patch config if SITE_URI is set
-[ ! -z "$SITE_URI" ] && sed -i 's@^base_url.*@base_url = '"$SITE_URI"'@' ./config.toml
+[ ! -z "$SITE_URI" ] && sed -i 's@^base_url.*@base_url = '"\"$SITE_URI"\"'@' ./config.toml
 
 /bin/zola check && /bin/zola build --output-dir /home/out/site
